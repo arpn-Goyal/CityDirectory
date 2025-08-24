@@ -1,16 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from "react";
 // import './App.css'
-import SignUp from './customerPages/SignUp.jsx';
+import SignUp from "./customerPages/SignUp.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard from "./customerPages/Dashboard.jsx";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <SignUp />,
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard/>
+    },
+  ]);
 
-  return (
-    <>
-      <SignUp/>
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

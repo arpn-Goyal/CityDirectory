@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from "morgan";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 dotenv.config();
@@ -24,6 +25,9 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('Server Started');
 })
+
+// Routes
+app.use('/api', authRoutes);
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
     app.listen(process.env.PORT, () => { console.log(`Server running at http://localhost:${process.env.PORT}`) })

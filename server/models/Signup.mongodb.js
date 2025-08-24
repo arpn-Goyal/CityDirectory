@@ -27,5 +27,5 @@ signupSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.passwordHash);
 }
 
-const SignupSchema = mongoose.model("signUp", signupSchema);
-export default SignupSchema
+const Signup = mongoose.model("signUp", signupSchema);
+export default Signup;
