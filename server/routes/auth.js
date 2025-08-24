@@ -25,7 +25,32 @@ router.post('/register', async (req, res) => {
         console.error(error);
         res.status(500).json({ msg: "Server error" });
     }
-
 })
 
+// Login
+router.post('/login', async (req, res)=>{
+    try {
+        const {email, password} = req.body;
+        
+        // check Email
+        const checkUser = await Signup.findOne({email});
+        if(!checkUser) return res.status(400).json({msg: 'Invalid Credential'});
+
+        // check Password
+        const checkPassword = await checkUser.isPasswordCorrect(password);
+        if(!checkPassword) return res.status(400).json({msg: "Invalid Creditional"});
+
+        // Store in session
+        req.session.user = {
+            email: checkUser.email,
+            role: checkUser.role,
+            mobileNumber: checkUser.mobileNumber
+        }
+
+        res.json({msg : 'Login Successfully', User: req.session.user});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Server error" });
+    }
+})
 export default router;

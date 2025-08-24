@@ -3,6 +3,8 @@ import { useState } from "react";
 import SignUp from "./customerPages/SignUp.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./customerPages/Dashboard.jsx";
+import Login from "./customerPages/Login.jsx";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -14,6 +16,10 @@ function App() {
       path: "/dashboard",
       element: <Dashboard/>
     },
+    {
+      path: '/login',
+      element: <Login/>
+    }
   ]);
 
   return <RouterProvider router={router} />;

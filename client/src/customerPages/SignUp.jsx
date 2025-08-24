@@ -1,32 +1,32 @@
-import React from "react";
 import { useState } from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-
+const API_URL = import.meta.env.VITE_SERVER_ORIGIN;
+ 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("Select Role");
   const [password, setPassword] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const navigate = useNavigate();
-
+  
   const handleSubmit = async (e) =>{
     e.preventDefault();
 
-    if(!email || !role || !password || !mobileNumber){
-        alert('Set All fields');
-        return;
-    }
+    // if(!email || !role || !password || !mobileNumber){
+    //     alert('Set All fields');
+    //     return;
+    // }
 
     try {
       // make API call
-      const response = await axios.post('http://localhost:4000/api/register', {email, role, password, mobileNumber});
+      const response = await axios.post(`${API_URL}/api/register`, {email, role, password, mobileNumber});
       if(response.status === 201 || response.status === 200){
         alert("User registered Succesfully");
-        navigate('/dashboard');
+        navigate('/login');
       }
     } catch (error) {
-      console.error("Registration error:", error);
+      console.log("Registration error:", error);
       alert(error.response?.data?.msg || "Something went wrong!");
     }
   }
