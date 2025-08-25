@@ -4,6 +4,7 @@ import SignUp from "./customerPages/SignUp.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./customerPages/Dashboard.jsx";
 import Login from "./customerPages/Login.jsx";
+import AddListiening from "./admin/listing/AddListiening.jsx";
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     },
     {
       path: "/dashboard",
-      element: <Dashboard/>
+      element: <AddListiening/>
     },
     {
       path: '/login',
