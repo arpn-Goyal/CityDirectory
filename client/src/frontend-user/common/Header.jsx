@@ -17,11 +17,7 @@ const Header = () => {
         </button>
         <div id="navbarNav" className="collapse navbar-collapse">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item"><a className="nav-link" href="#">Buy</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Rent</a></li>
             <li className="nav-item"><a className="nav-link" href="#">Properties</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">New Projects</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Guide</a></li>
             <li className="nav-item"><a className="nav-link" href="#">Get in Touch</a></li>
           </ul>
         </div>
