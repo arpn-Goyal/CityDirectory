@@ -9,7 +9,7 @@ const AddListiening = () => {
       <Sidebar />
       <main id="main" className="main">
         <div className="pagetitle">
-          <h1>Form Layouts</h1>
+          <h1>Add Property</h1>
           <nav>
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
@@ -17,8 +17,8 @@ const AddListiening = () => {
                   Home
                 </a>
               </li>
-              <li className="breadcrumb-item">Forms</li>
-              <li className="breadcrumb-item active">Layouts</li>
+              <li className="breadcrumb-item">Property</li>
+              <li className="breadcrumb-item active">Add Property</li>
             </ol>
           </nav>
         </div>
@@ -30,7 +30,7 @@ const AddListiening = () => {
             <div className="col-lg-8">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Floating labels Form</h5>
+                  <h5 className="card-title"></h5>
 
                   {/* Floating Labels Form */}
                   <form className="row g-3">
@@ -42,47 +42,75 @@ const AddListiening = () => {
                           id="floatingName"
                           placeholder="Your Name"
                         />
-                        <label htmlFor="floatingName">Your Name</label>
+                        <label htmlFor="floatingName">Heading</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="form-floating">
+                       <select
+                          className="form-select"
+                          id="floatingSelect"
+                          aria-label="State"
+                        >
+                          <option defaultValue>Land</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="villa">Villa</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="flat">Flat</option>
+                            <option value="condo">Condominium</option>
+                            <option value="bungalow">Bungalow</option>
+                            <option value="duplex">Duplex</option>
+                            <option value="penthouse">Penthouse</option>
+                            <option value="farmhouse">Farmhouse</option>
+                            <option value="studio">Studio Apartment</option>
+                            <option value="office">Office Space</option>
+                            <option value="shop">Shop / Showroom</option>
+                            <option value="warehouse">Warehouse</option>
+                            <option value="industrial">Industrial Property</option>
+                            <option value="co-living">Co-Living Space</option>
+                            <option value="hotel">Hotel / Resort</option>      </select>
+                        <label htmlFor="floatingSelect">Property Category</label>
                       </div>
                     </div>
 
                     <div className="col-md-6">
                       <div className="form-floating">
                         <input
-                          type="email"
+                          type="number"
                           className="form-control"
-                          id="floatingEmail"
-                          placeholder="Your Email"
+                          id="Price"
+                          placeholder="Price"
                         />
-                        <label htmlFor="floatingEmail">Your Email</label>
+                        <label htmlFor="Price">Price</label>
                       </div>
                     </div>
 
-                    <div className="col-md-6">
-                      <div className="form-floating">
-                        <input
-                          type="password"
-                          className="form-control"
-                          id="floatingPassword"
-                          placeholder="Password"
-                        />
-                        <label htmlFor="floatingPassword">Password</label>
-                      </div>
-                    </div>
-
-                    <div className="col-12">
+                    <div className="col-6">
                       <div className="form-floating">
                         <textarea
                           className="form-control"
                           placeholder="Address"
                           id="floatingTextarea"
-                          style={{ height: "100px" }}
+                          style={{ height: "50px" }}
                         ></textarea>
                         <label htmlFor="floatingTextarea">Address</label>
                       </div>
                     </div>
-
-                    <div className="col-md-6">
+                    <div className="col-md-2">
+                      <div className="col-md-12">
+                        <div className="form-floating">
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="floatingArea"
+                            placeholder="Area"
+                          />
+                          <label htmlFor="floatingArea">Area</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-4">
                       <div className="col-md-12">
                         <div className="form-floating">
                           <input
@@ -96,21 +124,53 @@ const AddListiening = () => {
                       </div>
                     </div>
 
-                    <div className="col-md-4">
+                   
+
+                    <div className="col-md-3">
                       <div className="form-floating mb-3">
-                        <select
-                          className="form-select"
-                          id="floatingSelect"
-                          aria-label="State"
-                        >
-                          <option defaultValue>New York</option>
-                          <option value="1">Oregon</option>
-                          <option value="2">DC</option>
-                        </select>
-                        <label htmlFor="floatingSelect">State</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="floatingAreaSize"
+                            placeholder="Area Size"
+                          />
+                          <label htmlFor="floatingArea">Area Size In Sq.Ft</label>
                       </div>
                     </div>
-
+                    <div className="col-md-3">
+                      <div className="form-floating">
+                        <input
+                          type="number"
+                          className="form-control"
+                          id=""
+                          placeholder=""
+                        />
+                        <label htmlFor="">Bedrooms</label>
+                      </div>
+                    </div>
+                    <div className="col-md-3">
+                      <div className="form-floating">
+                        <input
+                          type="number"
+                          className="form-control"
+                          id=""
+                          placeholder=""
+                        />
+                        <label htmlFor="">Bathrooms</label>
+                      </div>
+                    </div>
+                    <div className="col-md-3">
+                      <div className="form-floating">
+                        <input
+                          type="number"
+                          className="form-control"
+                          id=""
+                          placeholder=""
+                        />
+                        <label htmlFor="">Parking</label>
+                      </div>
+                    </div>
+                     
                     <div className="col-md-2">
                       <div className="form-floating">
                         <input

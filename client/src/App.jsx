@@ -5,13 +5,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./frontend-user/Dashboard.jsx";
 import Login from "./frontend-user/Login.jsx";
 import AddListiening from "./frontend-admin/listing/AddListiening.jsx";
+import AllListings from "./frontend-admin/listing/AllListings.jsx";
 
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <SignUp />,
+      element: <AllListings />,
     },
     {
       path: "/dashboard",
