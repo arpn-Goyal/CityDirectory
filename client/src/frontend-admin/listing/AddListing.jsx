@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "../navs/HeaderSidebar";
 import Sidebar from "../navs/Sidebar";
 
-const AddListiening = () => {
+const AddListing = () => {
+  const editorRef = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // collect form data (example)
+    const formData = {
+      heading: e.target.floatingName.value,
+      category: e.target.floatingSelect.value,
+      price: e.target.Price.value,
+      address: e.target.floatingTextarea.value,
+      area: e.target.floatingArea.value,
+      city: e.target.floatingCity.value,
+      areaSize: e.target.floatingAreaSize.value,
+      bedrooms: e.target.bedrooms.value,
+      bathrooms: e.target.bathrooms.value,
+      parking: e.target.parking.value,
+      zip: e.target.floatingZip.value,
+      description:  e.target.description.value,
+    };
+
+    console.log("Form Submitted:", formData);
+  };
+
   return (
     <>
       <Header />
@@ -48,29 +72,34 @@ const AddListiening = () => {
 
                     <div className="col-md-6">
                       <div className="form-floating">
-                       <select
+                        <select
                           className="form-select"
                           id="floatingSelect"
                           aria-label="State"
                         >
                           <option defaultValue>Land</option>
-                            <option value="townhouse">Townhouse</option>
-                            <option value="villa">Villa</option>
-                            <option value="apartment">Apartment</option>
-                            <option value="flat">Flat</option>
-                            <option value="condo">Condominium</option>
-                            <option value="bungalow">Bungalow</option>
-                            <option value="duplex">Duplex</option>
-                            <option value="penthouse">Penthouse</option>
-                            <option value="farmhouse">Farmhouse</option>
-                            <option value="studio">Studio Apartment</option>
-                            <option value="office">Office Space</option>
-                            <option value="shop">Shop / Showroom</option>
-                            <option value="warehouse">Warehouse</option>
-                            <option value="industrial">Industrial Property</option>
-                            <option value="co-living">Co-Living Space</option>
-                            <option value="hotel">Hotel / Resort</option>      </select>
-                        <label htmlFor="floatingSelect">Property Category</label>
+                          <option value="townhouse">Townhouse</option>
+                          <option value="villa">Villa</option>
+                          <option value="apartment">Apartment</option>
+                          <option value="flat">Flat</option>
+                          <option value="condo">Condominium</option>
+                          <option value="bungalow">Bungalow</option>
+                          <option value="duplex">Duplex</option>
+                          <option value="penthouse">Penthouse</option>
+                          <option value="farmhouse">Farmhouse</option>
+                          <option value="studio">Studio Apartment</option>
+                          <option value="office">Office Space</option>
+                          <option value="shop">Shop / Showroom</option>
+                          <option value="warehouse">Warehouse</option>
+                          <option value="industrial">
+                            Industrial Property
+                          </option>
+                          <option value="co-living">Co-Living Space</option>
+                          <option value="hotel">Hotel / Resort</option>{" "}
+                        </select>
+                        <label htmlFor="floatingSelect">
+                          Property Category
+                        </label>
                       </div>
                     </div>
 
@@ -124,17 +153,15 @@ const AddListiening = () => {
                       </div>
                     </div>
 
-                   
-
                     <div className="col-md-3">
                       <div className="form-floating mb-3">
                         <input
-                            type="text"
-                            className="form-control"
-                            id="floatingAreaSize"
-                            placeholder="Area Size"
-                          />
-                          <label htmlFor="floatingArea">Area Size In Sq.Ft</label>
+                          type="text"
+                          className="form-control"
+                          id="floatingAreaSize"
+                          placeholder="Area Size"
+                        />
+                        <label htmlFor="floatingArea">Area Size In Sq.Ft</label>
                       </div>
                     </div>
                     <div className="col-md-3">
@@ -170,7 +197,7 @@ const AddListiening = () => {
                         <label htmlFor="">Parking</label>
                       </div>
                     </div>
-                     
+
                     <div className="col-md-2">
                       <div className="form-floating">
                         <input
@@ -181,6 +208,17 @@ const AddListiening = () => {
                         />
                         <label htmlFor="floatingZip">Zip</label>
                       </div>
+                    </div>
+
+                    <div className="col-md-12">
+                      <label className="form-label">Property Description</label>
+            
+                      <textarea
+                        className="form-control"
+                        id="description"
+                        placeholder="Enter property description..."
+                        rows="6"
+                      ></textarea>
                     </div>
 
                     <div className="text-center">
@@ -205,4 +243,4 @@ const AddListiening = () => {
   );
 };
 
-export default AddListiening;
+export default AddListing;
