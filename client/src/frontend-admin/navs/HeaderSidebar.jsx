@@ -6,7 +6,7 @@ import '../../assets/js/datatable.js';
 import '../../assets/js/tinymce.min.js';
 import '../../assets/js/main.js';
 
-import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar.jsx";
 
 const Header = () => {
   return (

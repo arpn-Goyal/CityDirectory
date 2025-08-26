@@ -1,10 +1,10 @@
 import { useState } from "react";
 // import './App.css'
-import SignUp from "./customerPages/SignUp.jsx";
+import SignUp from "./frontend-user/SignUp.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./customerPages/Dashboard.jsx";
-import Login from "./customerPages/Login.jsx";
-import AddListiening from "./admin/listing/AddListiening.jsx";
+import Dashboard from "./frontend-user/Dashboard.jsx";
+import Login from "./frontend-user/Login.jsx";
+import AddListiening from "./frontend-admin/listing/AddListiening.jsx";
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     },
     {
       path: "/dashboard",
-      element: <AddListiening/>
+      element: <Dashboard/>
     },
     {
       path: '/login',
