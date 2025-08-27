@@ -10,12 +10,15 @@ import AddListing from "./frontend-admin/listing/AddListing.jsx";
 import PropertyDetails from "./frontend-user/pages/PropertyDetails.jsx";
 import Contact from "./frontend-user/pages/ContactPage.jsx";
 import AboutPage from "./frontend-user/pages/AboutPage.jsx";
+import AddCategory from "./frontend-admin/category/AddCategory.jsx";
+import AllCategory from "./frontend-admin/category/AllCategory.jsx";
+import HomePage from "./frontend-admin/setting/HomeSetting.jsx";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <PropertyDetails />,
+      element: <HomePage />,
     },
     {
       path: "/dashboard",

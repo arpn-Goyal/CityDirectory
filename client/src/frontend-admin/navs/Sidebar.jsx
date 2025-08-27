@@ -47,6 +47,70 @@ const Sidebar = () => {
         
           </ul>
         </li>
+         {/* Components */}
+        <li className="nav-item">
+          <a
+            className="nav-link collapsed"
+            data-bs-target="#components-nav-cat"
+            data-bs-toggle="collapse"
+            href="#"
+          >
+            <i className="bi bi-menu-button-wide"></i>
+            <span>Category</span>
+            <i className="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul
+            id="components-nav-cat"
+            className="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <li>
+              <a href="https://bootstrapmade.com/content/demo/NiceAdmin/components-alerts.html">
+                <i className="bi bi-circle"></i>
+                <span>Add Category </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://bootstrapmade.com/content/demo/NiceAdmin/components-accordion.html">
+                <i className="bi bi-circle"></i>
+                <span>All Category</span>
+              </a>
+            </li>
+        
+          </ul>
+        </li>
+         {/* Components */}
+        <li className="nav-item">
+          <a
+            className="nav-link collapsed"
+            data-bs-target="#components-nav-setting"
+            data-bs-toggle="collapse"
+            href="#"
+          >
+            <i className="bi bi-menu-button-wide"></i>
+            <span>Settings</span>
+            <i className="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul
+            id="components-nav-setting"
+            className="nav-content collapse"
+            data-bs-parent="#sidebar-nav"
+          >
+            <li>
+              <a href="https://bootstrapmade.com/content/demo/NiceAdmin/components-alerts.html">
+                <i className="bi bi-circle"></i>
+                <span>Home Settings </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://bootstrapmade.com/content/demo/NiceAdmin/components-accordion.html">
+                <i className="bi bi-circle"></i>
+                <span>other</span>
+              </a>
+            </li>
+        
+          </ul>
+        </li>
       </ul>
     </aside>
   );
