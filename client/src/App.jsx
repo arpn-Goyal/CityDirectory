@@ -14,6 +14,7 @@ import AddCategory from "./frontend-admin/category/AddCategory.jsx";
 import AllCategory from "./frontend-admin/category/AllCategory.jsx";
 import HomePage from "./frontend-admin/setting/HomeSetting.jsx";
 import ListSearchPage from "./frontend-user/pages/ListSearchPage.jsx";
+import HomeSetting from "./frontend-admin/setting/HomeSetting.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,6 +41,10 @@ function App() {
     {
       path: '/seachListing',
       element: <ListSearchPage/>
+    },
+    {
+      path: '/admin/homesetting',
+      element: <HomeSetting/>
     },
   ]);
 
