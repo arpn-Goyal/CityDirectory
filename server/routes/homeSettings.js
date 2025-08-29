@@ -17,19 +17,20 @@ router.post(
   async (req, res) => {
     try {
       // Convert values from req.body correctly
-
       const toBool = (val) => val === "true";
 
-const controls = {
-  showPropertySection: toBool(req.body["controls[showPropertySection]"]),
-  propertyCount: parseInt(req.body["controls[propertyCount]"] || 0, 10),
-  enquiryForm: toBool(req.body["controls[enquiryForm]"]),
-  neighbourSection: toBool(req.body["controls[neighbourSection]"]),
-  interestedInSellingSection: toBool(req.body["controls[interestedInSellingSection]"]),
-  meetTeam: toBool(req.body["controls[meetTeam]"]),
-};
+      const rawControls = req.body.controls || {};
 
-      console.log(controls);
+      const controls = {
+        showPropertySection: toBool(rawControls.showPropertySection),
+        propertyCount: parseInt(rawControls.propertyCount || 0, 10),
+        enquiryForm: toBool(rawControls.enquiryForm),
+        neighbourSection: toBool(rawControls.neighbourSection),
+        interestedInSellingSection: toBool(rawControls.interestedInSellingSection),
+        meetTeam: toBool(rawControls.meetTeam),
+      };
+
+      console.log(req.body);
 
       const data = {
         brandName: req.body.brandName,
@@ -52,7 +53,7 @@ const controls = {
       res.status(500).json({ error: error.message });
     }
   }
-); 
+);
 
 // Get Settings
 router.get("/", async (req, res) => {

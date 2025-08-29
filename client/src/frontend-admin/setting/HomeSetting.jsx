@@ -43,17 +43,36 @@ const HomeSetting = () => {
     formData.sponsorLogos.forEach((file) => data.append("sponsorLogos", file));
 
     // controls (always send string "true"/"false")
-data.append("controls[showPropertySection]", formData.showPropertySection === "enable" ? "true" : "false");
-data.append("controls[propertyCount]", formData.propertyCount || "0");
-data.append("controls[enquiryForm]", formData.enquiryForm === "enable" ? "true" : "false");
-data.append("controls[neighbourSection]", formData.neighbourSection === "enable" ? "true" : "false");
-data.append("controls[interestedInSellingSection]", formData.sellingSection === "enable" ? "true" : "false");
-data.append("controls[meetTeam]", formData.meetTeam === "enable" ? "true" : "false");
-   
-try {
-      const res = await axios.post("http://localhost:4000/api/home-settings/save", data, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+    data.append(
+      "controls[showPropertySection]",
+      formData.showPropertySection === "enable" ? "true" : "false"
+    );
+    data.append("controls[propertyCount]", formData.propertyCount || "0");
+    data.append(
+      "controls[enquiryForm]",
+      formData.enquiryForm === "enable" ? "true" : "false"
+    );
+    data.append(
+      "controls[neighbourSection]",
+      formData.neighbourSection === "enable" ? "true" : "false"
+    );
+    data.append(
+      "controls[interestedInSellingSection]",
+      formData.sellingSection === "enable" ? "true" : "false"
+    );
+    data.append(
+      "controls[meetTeam]",
+      formData.meetTeam === "enable" ? "true" : "false"
+    );
+
+    try {
+      const res = await axios.post(
+        "http://localhost:4000/api/home-settings/save",
+        data,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       alert(res.data.message);
     } catch (err) {
       console.error(err);
@@ -89,7 +108,9 @@ try {
               <div className="card-body">
                 {/* Brand Logo */}
                 <div className="mb-3">
-                  <label htmlFor="brandLogo" className="form-label">Brand Logo</label>
+                  <label htmlFor="brandLogo" className="form-label">
+                    Brand Logo
+                  </label>
                   <input
                     type="file"
                     className="form-control"
@@ -102,7 +123,9 @@ try {
 
                 {/* Brand Name */}
                 <div className="mb-3">
-                  <label htmlFor="brandName" className="form-label">Brand Name</label>
+                  <label htmlFor="brandName" className="form-label">
+                    Brand Name
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -117,7 +140,9 @@ try {
 
                 {/* Hero Banner */}
                 <div className="mb-3">
-                  <label htmlFor="heroBanner" className="form-label">Hero Banner</label>
+                  <label htmlFor="heroBanner" className="form-label">
+                    Hero Banner
+                  </label>
                   <input
                     type="file"
                     className="form-control"
@@ -130,7 +155,9 @@ try {
 
                 {/* Sponsor Logos */}
                 <div className="mb-3">
-                  <label htmlFor="sponsorLogos" className="form-label">Sponsor Logos</label>
+                  <label htmlFor="sponsorLogos" className="form-label">
+                    Sponsor Logos
+                  </label>
                   <input
                     type="file"
                     className="form-control"
@@ -162,7 +189,8 @@ try {
                         value="enable"
                         checked={formData.showPropertySection === "enable"}
                         onChange={handleChange}
-                      /> Enable
+                      />{" "}
+                      Enable
                     </label>
                     <label className="form-check form-check-inline">
                       <input
@@ -172,14 +200,17 @@ try {
                         value="disable"
                         checked={formData.showPropertySection === "disable"}
                         onChange={handleChange}
-                      /> Disable
+                      />{" "}
+                      Disable
                     </label>
                   </div>
                 </div>
 
                 {/* Property Count */}
                 <div className="mb-3">
-                  <label htmlFor="propertyCount" className="form-label">Property Count on Home Page</label>
+                  <label htmlFor="propertyCount" className="form-label">
+                    Property Count on Home Page
+                  </label>
                   <input
                     type="number"
                     className="form-control"
@@ -203,7 +234,8 @@ try {
                         value="enable"
                         checked={formData.enquiryForm === "enable"}
                         onChange={handleChange}
-                      /> Enable
+                      />{" "}
+                      Enable
                     </label>
                     <label className="form-check form-check-inline">
                       <input
@@ -213,7 +245,8 @@ try {
                         value="disable"
                         checked={formData.enquiryForm === "disable"}
                         onChange={handleChange}
-                      /> Disable
+                      />{" "}
+                      Disable
                     </label>
                   </div>
                 </div>
@@ -230,7 +263,8 @@ try {
                         value="enable"
                         checked={formData.neighbourSection === "enable"}
                         onChange={handleChange}
-                      /> Enable
+                      />{" "}
+                      Enable
                     </label>
                     <label className="form-check form-check-inline">
                       <input
@@ -240,14 +274,17 @@ try {
                         value="disable"
                         checked={formData.neighbourSection === "disable"}
                         onChange={handleChange}
-                      /> Disable
+                      />{" "}
+                      Disable
                     </label>
                   </div>
                 </div>
 
                 {/* Interested in Selling Section */}
                 <div className="mb-3">
-                  <label className="form-label">Interested in Selling Section</label>
+                  <label className="form-label">
+                    Interested in Selling Section
+                  </label>
                   <div>
                     <label className="form-check form-check-inline">
                       <input
@@ -257,7 +294,8 @@ try {
                         value="enable"
                         checked={formData.sellingSection === "enable"}
                         onChange={handleChange}
-                      /> Enable
+                      />{" "}
+                      Enable
                     </label>
                     <label className="form-check form-check-inline">
                       <input
@@ -267,7 +305,8 @@ try {
                         value="disable"
                         checked={formData.sellingSection === "disable"}
                         onChange={handleChange}
-                      /> Disable
+                      />{" "}
+                      Disable
                     </label>
                   </div>
                 </div>
@@ -284,7 +323,8 @@ try {
                         value="enable"
                         checked={formData.meetTeam === "enable"}
                         onChange={handleChange}
-                      /> Enable
+                      />{" "}
+                      Enable
                     </label>
                     <label className="form-check form-check-inline">
                       <input
@@ -294,7 +334,8 @@ try {
                         value="disable"
                         checked={formData.meetTeam === "disable"}
                         onChange={handleChange}
-                      /> Disable
+                      />{" "}
+                      Disable
                     </label>
                   </div>
                 </div>
