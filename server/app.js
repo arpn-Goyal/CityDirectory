@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/api', authRoutes);
-app.use('/admin/api', homeRoutes);
+app.use('/api/home-settings', homeRoutes);
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
     app.listen(process.env.PORT, () => { console.log(`Server running at http://localhost:${process.env.PORT}`) })

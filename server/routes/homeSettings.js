@@ -1,14 +1,14 @@
 // routes/homeSettings.js
 import express from "express";
 import upload from "../middleware/upload.js";
-import { ensureSingleSettings } from "../middleware/singletonHomeSettings.js";
-import HomeSettings from "../models/HomeSettings.js";
+//import { ensureSingleSettings } from "../middleware/singletonHomeSettings.js";
+import HomeSettings from "../models/HomeSettings.mongodb.js";
 
 const router = express.Router();
 
 // Create/Update with file uploads
 router.post(
-  "/",
+  "/save",
   upload.fields([
     { name: "brandLogo", maxCount: 1 },
     { name: "heroBanner", maxCount: 1 },
@@ -16,15 +16,30 @@ router.post(
   ]),
   async (req, res) => {
     try {
-      // Prepare body with uploaded file paths
+      // Convert values from req.body correctly
+
+      const toBool = (val) => val === "true";
+
+const controls = {
+  showPropertySection: toBool(req.body["controls[showPropertySection]"]),
+  propertyCount: parseInt(req.body["controls[propertyCount]"] || 0, 10),
+  enquiryForm: toBool(req.body["controls[enquiryForm]"]),
+  neighbourSection: toBool(req.body["controls[neighbourSection]"]),
+  interestedInSellingSection: toBool(req.body["controls[interestedInSellingSection]"]),
+  meetTeam: toBool(req.body["controls[meetTeam]"]),
+};
+
+      console.log(controls);
+
       const data = {
-        ...req.body,
+        brandName: req.body.brandName,
         brandLogo: req.files["brandLogo"]?.[0]?.path || undefined,
         heroBanner: req.files["heroBanner"]?.[0]?.path || undefined,
-        sponsorLogos: req.files["sponsorLogos"]?.map(f => f.path) || []
+        sponsorLogos: req.files["sponsorLogos"]?.map(f => f.path) || [],
+        controls
       };
 
-      // Run ensureSingleSettings logic here
+      // Ensure only one settings document exists
       let settings = await HomeSettings.findOne();
       if (!settings) {
         settings = await HomeSettings.create(data);
@@ -37,7 +52,7 @@ router.post(
       res.status(500).json({ error: error.message });
     }
   }
-);  
+); 
 
 // Get Settings
 router.get("/", async (req, res) => {
